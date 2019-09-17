@@ -30,7 +30,7 @@ use feature qw(say);
      --save
      --html
      grep-patturn: cmd arguments
-     --update [$group_no] : update from groupNOs. 
+     --update [$group_no] : update html's log from groupNOs. 
  
  # evironmental variables---
  ## $COMPORNENT
@@ -86,7 +86,7 @@ my $ginfo_file; # group info file.
     'update=i' => \$update,
   ) or pod2usage();
 
-  # read setting.
+  # read config from config_yaml.pl.
   require($info_file);
   our @_CONTAINERS;
   our @_containers_nos;
@@ -113,6 +113,7 @@ my $ginfo_file; # group info file.
     push(@greps, $grep);
   }
  
+  # コマンドラインに 引数として与えた文字列の後に"yes or no> "を出す. "y"なら1を,"n"を打ったなら0を返す. ユーザにyes or noを判定してほしいときに呼び出す. 
   sub yesno{
     my $comment = shift;
     my $default = shift;
@@ -137,6 +138,7 @@ my $ginfo_file; # group info file.
     return($default);
   }
 
+  # return oneline container name of @targets.
   sub get_targets_oneline(){
     my $str = "";
     foreach my $cno (@targets){
@@ -145,6 +147,7 @@ my $ginfo_file; # group info file.
     return $str;
   }
 
+  # 引数として与えた group番号から、そのグループの情報を取る. usied for --update option.
   sub get_group_info($){ # parse argument. argument is groupNo.
     my $group_no;
     ($group_no) = @_;
@@ -171,6 +174,9 @@ my $ginfo_file; # group info file.
 }
 
 { #set targets, grep-patturns, group_info and dist_paths. 
+# 1. --update なら 
+# 2. --update以外なら
+#   2-1. --
 
   if ($update){
     # set group info.
@@ -189,8 +195,10 @@ my $ginfo_file; # group info file.
   }else{
     # set targets.
     if ($interactive){
+      # if y user can select from ALL CONTAINER, if n user can select only DEFAULTS.
       my $yesno = yesno("   TARGET SELECT FROM: y-> ALL CONTAINER / no-> [DEFAULTS]");
       if ($yesno){ 
+        # if yes
         # from All containers.
         for my $cno (@containers_nos){
           if (yesno("    $CONTAINERS[$cno]")){
@@ -199,6 +207,7 @@ my $ginfo_file; # group info file.
         }
       }
       else{
+        # if no
         # from defaults.
         for my $cno (@DEFAULT_CONTAINERS){
           if (yesno("    $CONTAINERS[$cno]")){
@@ -273,7 +282,6 @@ if($debug) {
   # get_log(): get_log from @_(cname),
   # save()   : And save to @paths when user select --save option,
   # look()   : And look,  when user select --look option.
-  # update() : 
 
   ## compornent_name
   my $cname;                  
