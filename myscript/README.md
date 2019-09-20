@@ -1,6 +1,6 @@
 ## logCollection script for SW360chores
 OSS管理ツールの代表的なコンポーネントの2つ("Sw360chores"と"FOSSologyのDockerコンテナ")を対象にログを収集するスクリプトです。<br>
-SW360chroesとは、SW360をDockerで動かすためのOSSです。[以下のurlより参照] : <br>
+SW360chroesとは、SW360をDockerで動かすためのOSSです。 <br>
 インターンシップの成果として、本レポジトリと以下の２つのレポジトリに分けて、せっかくなので公開します。 (許可とっています)
 <br>利用よりも部分部分を何かの参考にしてください！！！
 
