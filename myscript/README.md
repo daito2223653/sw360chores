@@ -17,17 +17,18 @@ SW360chroesとは、SW360をDockerで動かすためのOSSです。 <br>
 などが可能です。 
 
 詳しくは、"Usage"を見てください。
-
 ### You can do too...
-設定ファイルへの追記と変更で、デフォルトでログを取得するターゲットコンテナの変更や、Dockerコンテナ名の変更やSW360chores以外のDockerコンテナの追加、journaldやsyslogを利用するその他のアプリケーション(Dockerでなくても良い)
-のログを取ることが可能です。<br>.また、同じく設定ファイルへの追記と変更でjournaldとsyslogコマンド、ターゲットを引数に文字列を返すコマンド(*1)に対応可能です。
-<br>その他、独自のログを使うアプリケーションと、デフォルト設定とsyslog、journald以外のログ収集方法を選んだDockerコンテナのログを収集することはできません。
-
+設定ファイルへの追記と変更で、
+1. デフォルトでログを取得するターゲットコンテナの変更や
+2. Dockerコンテナ名の変更やSW360chores以外のDockerコンテナの追加
+3. journaldやsyslogを利用するその他のアプリケーション(Dockerでなくても良い)のログを取る<br>.
+4. 同じく設定ファイルへの追記と変更でjournaldとsyslogコマンド、ターゲットを引数に文字列を返すコマンド(*1)に対応可能です。
+が可能です。<br>
 *1: 例えば、 "docker logs [target] | grep -i error" とするとエラー行のみを取得することができます。
 
-詳しくは、"Setting"を見てください。
-
-* SW360choresの現安定versionで動作確認済み(9/20) 新しいversionの動作確認はできていません
+詳しくは、"Setting"を見てください。 <br>
+* "setting"に必要であれば後に追記いたします。<br>
+* 独自のログを使うアプリケーションと、デフォルト設定とsyslog、journald以外のログ収集方法を選んだDockerコンテナのログを収集することはできません。
 
 ## Prerequisites
 SW360chores : 
@@ -57,6 +58,8 @@ setup.pl --checkを実行してみてください。（config_info.plの内容�
 以下のオプションは安定していません。<br>
 --save       : 保存する <br>
 --update     : 更新する<br>
+* SW360choresの現安定versionで動作確認済み(9/20) 新しいversionの動作確認はできていません
+
 
 ## Setting
 config.yaml    : ユーザが設定する設定ファイル <br>
