@@ -45,12 +45,14 @@ setup.pl --checkを実行してみてください。（config_info.plの内容�
  defaults    => <br>
 """<br>
 のように出る場合は、"Setting" より、setup.pl --setupを実行してからmain.plを実行してみてください。<br>
-main.pl       :  デフォルトで読み込むコンテナのログを収集します。収集するだけで何も実行ないです。<br>
- --html　　　　:  HTMLを作成する.  <br>
- --html test testb testc : HTMLを生成して "test"と "testb", "testc"の文字に色をつける(errorなどはデフォルトで色がつく)<br>
+* main.pl       :  デフォルトで読み込むコンテナのログを収集します。収集するだけで何も実行ないです。<br>
+オプションをつけて実行するきと収集するログに対して様々な処理を行えます。<br>
+ --interactive : ログを収集するターゲットを対話的に決定する("Setting")<br>
+ --timestamp  : タイムスタンプをつける<br>
  --look       : コマンドラインで確認する<br>
- --interactive : ログを収集するターゲットを対話的に決定する<br>
- --timestamp  : タイムスタンプをつける
+ --html　　　　:  HTMLを作成する firefox /html_script/main.html & などで確認してみてください  <br>
+ --html test testb testc : HTMLを生成して "test"と "testb", "testc"の文字に色をつける(errorなどはデフォルトで色がつく)<br>
+
  
 以下のオプションは安定していません。<br>
 --save       : 保存する <br>
@@ -64,6 +66,7 @@ config_info.pl : スクリプトから読み込まれる設定ファイル。共
 setup.pl --setup : yamlを読み込んで、config_info.plに共有変数を書き込む<br> 
 必須!!<br>
 setup.pl --check : 設定の確認する<br>
+-> "Usage"のmain.pl  --look"を実行してみましょう。
 
 ## Test
 今後にやります
