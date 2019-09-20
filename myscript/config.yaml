@@ -12,9 +12,8 @@ using :
     - sw360_dev_sw360cvs_search
   syslog:
     - _fossology  
-  journald:
-    - test
-  error:
+      #journald:
+          #error:
           #- sw360_dev_sw360
 
 containers: 
@@ -26,8 +25,8 @@ containers:
     - sw360cvs_search
   daito:
     - fossology 
-  none:
-    - test
+      #none:
+    
 
 cmd : # log_type : 対応する物1つのログ出力コマンド
   json : docker logs #container
@@ -45,7 +44,6 @@ isEnable:
   - sw360couchdb
   - sw360postgresql
   - daito_fossology
-  - test
   
 # not used
 destination:
